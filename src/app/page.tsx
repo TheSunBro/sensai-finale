@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import CinematicHero from "@/components/CinematicHero";
 import Showcase3D from "@/components/Showcase3D";
+import Footer from "@/components/Footer";
 
 export default function Home() {
 
@@ -40,6 +41,8 @@ export default function Home() {
             <section className="min-h-screen flex items-center justify-center">
                 <p className="font-mono text-sm opacity-50">[ CONTENT FLOW ]</p>
             </section>
+
+            <Footer />
         </main>
     );
 }

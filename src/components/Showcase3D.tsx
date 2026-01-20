@@ -113,7 +113,7 @@ export default function Showcase3D() {
             </div>
 
             <motion.div
-                className="relative w-[300px] md:w-[400px] aspect-square will-change-transform"
+                className="relative w-[90vw] md:w-[400px] aspect-square will-change-transform"
                 style={{
                     rotateX,
                     rotateY,
@@ -204,7 +204,7 @@ export default function Showcase3D() {
                                 </div>
 
                                 {/* Main Title - Ethereal Glow */}
-                                <h2 className="text-7xl font-heading font-medium tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-cyan-200 drop-shadow-[0_0_25px_rgba(34,211,238,0.4)]">
+                                <h2 className="text-5xl md:text-7xl font-heading font-medium tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-cyan-200 drop-shadow-[0_0_25px_rgba(34,211,238,0.4)]">
                                     <MatrixText
                                         text={CHANNELS[activeChannel].title}
                                         speed={40}
@@ -228,8 +228,8 @@ export default function Showcase3D() {
                         </div>
                     </div>
 
-                    {/* Controls Area - Directly on the chassis face, no separate panel */}
-                    <div className="h-20 relative flex items-center justify-between mt-4 px-1 z-50">
+                    {/* Controls Area - Responsive: Stacked on mobile, Row on desktop */}
+                    <div className="relative flex flex-col-reverse md:flex-row items-center justify-between mt-4 px-1 z-50 gap-4 md:gap-0 h-auto md:h-20 py-2 md:py-0">
 
                         {/* Channel Buttons (Left) */}
                         <div className="flex gap-4 relative z-50" role="group" aria-label="TV Channel Selection">
