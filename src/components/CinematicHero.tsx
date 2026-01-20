@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, ReactNode } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 import NextImage from "next/image";
+import Lenis from "lenis";
 import { cn } from "../lib/utils";
 
 // ... [existing imports]
@@ -36,9 +37,10 @@ const FRAMES = [
 interface CinematicHeroProps {
     children?: ReactNode;
     className?: string;
+    lenis?: Lenis | null;
 }
 
-export default function CinematicHero({ children, className }: CinematicHeroProps) {
+export default function CinematicHero({ children, className, lenis }: CinematicHeroProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const [images, setImages] = useState<HTMLImageElement[]>([]);
@@ -86,7 +88,7 @@ export default function CinematicHero({ children, className }: CinematicHeroProp
 
     // 4. Text Sequence Logic (Zen Pacing - No Overlap)
     // Compressed slightly to fit the new 0.50 cutoff for frames
-    const opacityCrafting = useTransform(scrollYProgress, [0.1, 0.18, 0.25, 0.28], [0, 1, 1, 0]);
+    const opacityCrafting = useTransform(scrollYProgress, [0.1, 0.18, 0.22, 0.25], [0, 1, 1, 0]);
     const opacityMotion = useTransform(scrollYProgress, [0.3, 0.35, 0.4, 0.43], [0, 1, 1, 0]);
     const opacityFlow = useTransform(scrollYProgress, [0.42, 0.45, 0.48, 0.52], [0, 1, 1, 0]);
 
@@ -231,9 +233,22 @@ export default function CinematicHero({ children, className }: CinematicHeroProp
                         </p>
 
                         {/* CTA Button - Clear Action */}
-                        <motion.button
-                            onClick={() => window.scrollTo({ top: window.innerHeight * 0.2, behavior: 'smooth' })}
-                            className="relative px-8 py-4 bg-white text-black text-xs md:text-sm font-bold tracking-widest uppercase rounded-full cursor-pointer z-50 overflow-hidden"
+                        <motion.a
+                            href="#contact"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                if (lenis) {
+                                    // CINEMATIC AUTOPILOT: 4s duration, Quintic Ease
+                                    // This forces a slow, deliberate "camera move" through the site
+                                    lenis.scrollTo('#contact', {
+                                        duration: 4,
+                                        easing: (t) => t < 0.5 ? 16 * t * t * t * t * t : 1 - Math.pow(-2 * t + 2, 5) / 2
+                                    });
+                                } else {
+                                    document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+                                }
+                            }}
+                            className="relative px-8 py-4 bg-white text-black text-xs md:text-sm font-bold tracking-widest uppercase rounded-full cursor-pointer z-50 overflow-hidden inline-block"
                             whileHover={{ scale: 1.05, backgroundColor: "#fbbf24" }} // amber-400
                             whileTap={{ scale: 0.95 }}
                             animate={{
@@ -252,7 +267,7 @@ export default function CinematicHero({ children, className }: CinematicHeroProp
 
                             {/* Inner Shimmer/Border Highlighting */}
                             <div className="absolute inset-0 rounded-full border border-amber-500/50 opacity-50" />
-                        </motion.button>
+                        </motion.a>
                     </motion.div>
 
                     {/* SIDE LIGHTING: Dynamic God Rays that react to scroll */}
@@ -273,15 +288,16 @@ export default function CinematicHero({ children, className }: CinematicHeroProp
                     {/* Letters appear one by one, building the word */}
                     <div className="absolute w-full text-center flex justify-center gap-[0.2em]">
                         {["C", "R", "A", "F", "T", "I", "N", "G"].map((char, i) => {
-                            // Stagger logic: 8 letters over 0.15 -> 0.25 range
-                            const start = 0.15 + (i * 0.01);
+                            // Stagger logic: 8 letters, start earlier to clear screen faster
+                            const start = 0.08 + (i * 0.01);
                             const end = start + 0.02;
                             return (
                                 <motion.span
                                     key={i}
                                     className="text-6xl md:text-9xl font-thin text-amber-50/90 font-sans drop-shadow-[0_0_30px_rgba(251,191,36,0.2)] mix-blend-overlay"
                                     style={{
-                                        opacity: useTransform(scrollYProgress, [start, end, 0.35, 0.45], [0, 1, 1, 0]),
+                                        // Fade out just as MOTION (starts 0.3) begins to appear - seamless handoff
+                                        opacity: useTransform(scrollYProgress, [start, end, 0.28, 0.32], [0, 1, 1, 0]),
                                         y: useTransform(scrollYProgress, [start, end], [20, 0]), // Slight subtle rise
                                         scale: scaleText
                                     }}
