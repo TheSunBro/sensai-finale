@@ -125,7 +125,7 @@ export default function CinematicOutro({ children, className }: CinematicOutroPr
     return (
         <div
             ref={containerRef}
-            className={cn("relative h-[300vh] -mt-[100vh] bg-transparent will-change-transform z-40 pointer-events-none", className)}
+            className={cn("relative h-[200vh] -mt-[100vh] bg-transparent will-change-transform z-40 pointer-events-none", className)}
             role="img"
             aria-label="Cinematic closing curtain"
             style={{
