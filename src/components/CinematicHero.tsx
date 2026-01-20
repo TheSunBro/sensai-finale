@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, ReactNode } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
+import NextImage from "next/image";
 import { cn } from "../lib/utils";
 
 // ... [existing imports]
@@ -68,35 +69,35 @@ export default function CinematicHero({ children, className }: CinematicHeroProp
         offset: ["start start", "end end"],
     });
 
-    // 1. Frame Scrubbing: Happens over the first 75% of scroll (was 80%)
-    const frameIndex = useTransform(scrollYProgress, [0, 0.75], [0, FRAMES.length - 1]);
+    // 1. Frame Scrubbing: Happens over the first 50% of scroll (was 75%)
+    const frameIndex = useTransform(scrollYProgress, [0, 0.5], [0, FRAMES.length - 1]);
 
     // 2. Zoom Effect (Curtain): Scales up massively to "pass through"
-    // Finishes early (0.85) so there is a "Moment of Silence" for the TV
-    const curtainScale = useTransform(scrollYProgress, [0.70, 0.85], [1, 4]);
-    const curtainOpacity = useTransform(scrollYProgress, [0.80, 0.90], [1, 0]);
-    const curtainBlur = useTransform(scrollYProgress, [0.70, 0.85], ["0px", "12px"]);
+    // Finishes early (0.55) so there is a massive "Moment of Silence" for the TV
+    const curtainScale = useTransform(scrollYProgress, [0.45, 0.55], [1, 4]);
+    const curtainOpacity = useTransform(scrollYProgress, [0.5, 0.6], [1, 0]);
+    const curtainBlur = useTransform(scrollYProgress, [0.45, 0.55], ["0px", "12px"]);
 
     // 3. Child Reveal (TV): Scales in and finishes early
-    // "Time to Shine": Fully visible from 0.85 to 1.0 (The Plateau)
-    const childScale = useTransform(scrollYProgress, [0, 0.85], [0.8, 1]);
-    const childOpacity = useTransform(scrollYProgress, [0.6, 0.85], [0, 1]);
-    const childY = useTransform(scrollYProgress, [0, 0.85], ["10%", "0%"]);
+    // "Time to Shine": Fully visible from 0.55 to 1.0 (The Plateau)
+    const childScale = useTransform(scrollYProgress, [0, 0.55], [0.8, 1]);
+    const childOpacity = useTransform(scrollYProgress, [0.4, 0.55], [0, 1]);
+    const childY = useTransform(scrollYProgress, [0, 0.55], ["10%", "0%"]);
 
     // 4. Text Sequence Logic (Zen Pacing - No Overlap)
-    // Compressed slightly to fit the new 0.75 cutoff for frames
-    const opacityCrafting = useTransform(scrollYProgress, [0.15, 0.25, 0.35, 0.40], [0, 1, 1, 0]);
-    const opacityMotion = useTransform(scrollYProgress, [0.45, 0.50, 0.55, 0.60], [0, 1, 1, 0]);
-    const opacityFlow = useTransform(scrollYProgress, [0.65, 0.70, 0.75, 0.80], [0, 1, 1, 0]);
+    // Compressed slightly to fit the new 0.50 cutoff for frames
+    const opacityCrafting = useTransform(scrollYProgress, [0.1, 0.18, 0.25, 0.28], [0, 1, 1, 0]);
+    const opacityMotion = useTransform(scrollYProgress, [0.3, 0.35, 0.4, 0.43], [0, 1, 1, 0]);
+    const opacityFlow = useTransform(scrollYProgress, [0.42, 0.45, 0.48, 0.52], [0, 1, 1, 0]);
 
     // Subtle scaling for the text to make it feel alive
-    const scaleText = useTransform(scrollYProgress, [0, 1], [0.9, 1.1]);
+    const scaleText = useTransform(scrollYProgress, [0, 0.6], [0.9, 1.1]);
 
     // Special "Flow" Effect Logic
     // 1. Blur: Flows from "liquid" (blurry) to "solid" (sharp)
-    const flowBlur = useTransform(scrollYProgress, [0.65, 0.70, 0.75, 0.80], ["8px", "0px", "0px", "8px"]);
+    const flowBlur = useTransform(scrollYProgress, [0.42, 0.45, 0.48, 0.52], ["8px", "0px", "0px", "8px"]);
     // 2. Spacing: The letters "drift" apart like water
-    const flowSpacing = useTransform(scrollYProgress, [0.65, 0.80], ["0em", "0.3em"]);
+    const flowSpacing = useTransform(scrollYProgress, [0.42, 0.52], ["0em", "0.3em"]);
 
     // Render Loop
     useEffect(() => {
@@ -161,7 +162,7 @@ export default function CinematicHero({ children, className }: CinematicHeroProp
     return (
         <div
             ref={containerRef}
-            className={cn("relative h-[350vh] bg-black will-change-transform", className)}
+            className={cn("relative h-[500vh] bg-black will-change-transform", className)}
             role="img"
             aria-label="Cinematic opening curtain revealing the sensAI portfolio"
         >
@@ -192,12 +193,20 @@ export default function CinematicHero({ children, className }: CinematicHeroProp
 
                 {/* Layer 2.5: High-Res Static Hero Overlay (Fixes initial blur) */}
                 {/* Visual Trick: Shows the sharp 4K image at start, fades to movie sequence on scroll */}
-                <motion.img
-                    src="/images/Hero%20Background.webp"
-                    alt="Hero Background"
-                    className="absolute inset-0 w-full h-full object-cover z-20 pointer-events-none"
+                <motion.div
+                    className="absolute inset-0 z-20 pointer-events-none"
                     style={{ opacity: useTransform(scrollYProgress, [0, 0.05], [1, 0]) }}
-                />
+                >
+                    <NextImage
+                        src="/images/Hero%20Background.webp"
+                        alt="Hero Background"
+                        fill
+                        priority
+                        quality={90}
+                        sizes="100vw"
+                        className="object-cover"
+                    />
+                </motion.div>
 
                 {/* Layer 3: Text Sequence & Interface */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-30 pb-0">
@@ -222,12 +231,28 @@ export default function CinematicHero({ children, className }: CinematicHeroProp
                         </p>
 
                         {/* CTA Button - Clear Action */}
-                        <button
+                        <motion.button
                             onClick={() => window.scrollTo({ top: window.innerHeight * 0.2, behavior: 'smooth' })}
-                            className="px-8 py-4 bg-white text-black text-xs md:text-sm font-bold tracking-widest uppercase hover:bg-cyan-400 hover:scale-105 transition-all duration-300 rounded-full shadow-[0_0_20px_rgba(255,255,255,0.3)] cursor-pointer"
+                            className="relative px-8 py-4 bg-white text-black text-xs md:text-sm font-bold tracking-widest uppercase rounded-full cursor-pointer z-50 overflow-hidden"
+                            whileHover={{ scale: 1.05, backgroundColor: "#fbbf24" }} // amber-400
+                            whileTap={{ scale: 0.95 }}
+                            animate={{
+                                boxShadow: [
+                                    "0 0 0px rgba(245, 158, 11, 0.2)",
+                                    "0 0 25px rgba(245, 158, 11, 0.5)",
+                                    "0 0 0px rgba(245, 158, 11, 0.2)"
+                                ]
+                            }}
+                            transition={{
+                                boxShadow: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+                                default: { duration: 0.3 }
+                            }}
                         >
-                            Begin Journey
-                        </button>
+                            <span className="relative z-10">Begin Journey</span>
+
+                            {/* Inner Shimmer/Border Highlighting */}
+                            <div className="absolute inset-0 rounded-full border border-amber-500/50 opacity-50" />
+                        </motion.button>
                     </motion.div>
 
                     {/* SIDE LIGHTING: Dynamic God Rays that react to scroll */}

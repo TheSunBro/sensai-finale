@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
 import CinematicHero from "@/components/CinematicHero";
+import CinematicOutro from "@/components/CinematicOutro";
 import Showcase3D from "@/components/Showcase3D";
 import Footer from "@/components/Footer";
 
@@ -37,12 +38,10 @@ export default function Home() {
                 </div>
             </CinematicHero>
 
-            {/* Placeholder for future content */}
-            <section className="min-h-screen flex items-center justify-center">
-                <p className="font-mono text-sm opacity-50">[ CONTENT FLOW ]</p>
-            </section>
-
-            <Footer />
+            {/* Cinematic Outro: The Reverse Tunnel Sequence */}
+            <CinematicOutro>
+                <Footer />
+            </CinematicOutro>
         </main>
     );
 }
