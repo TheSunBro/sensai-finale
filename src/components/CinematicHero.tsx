@@ -223,23 +223,22 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                         }}
                     >
                         {/* Brand Title */}
-                        <h1 className="text-6xl md:text-9xl font-bold tracking-tighter text-white drop-shadow-2xl mb-4">
+                        {/* Brand Title - Glass Text Aesthetic */}
+                        <h1 className="text-6xl md:text-9xl font-bold tracking-tighter mb-4 bg-gradient-to-b from-white via-white/90 to-white/60 text-transparent bg-clip-text drop-shadow-[0_0_20px_rgba(255,255,255,0.3)]">
                             sensAI
                         </h1>
 
-                        {/* Tagline */}
-                        <p className="text-sm md:text-lg text-white/80 font-light tracking-[0.3em] uppercase mb-10">
+                        {/* Tagline - Refined Hierarchy */}
+                        <p className="text-sm md:text-lg text-zinc-400 font-light tracking-[0.4em] uppercase mb-10 drop-shadow-lg">
                             Kino im Kopf. KI im Workflow.
                         </p>
 
-                        {/* CTA Button - Clear Action */}
+                        {/* CTA Button - Consistent Premium Gold */}
                         <motion.a
                             href="#contact"
                             onClick={(e) => {
                                 e.preventDefault();
                                 if (lenis) {
-                                    // CINEMATIC AUTOPILOT: 4s duration, Quintic Ease
-                                    // This forces a slow, deliberate "camera move" through the site
                                     lenis.scrollTo('#contact', {
                                         duration: 4,
                                         easing: (t) => t < 0.5 ? 16 * t * t * t * t * t : 1 - Math.pow(-2 * t + 2, 5) / 2
@@ -248,8 +247,8 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                                     document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
                                 }
                             }}
-                            className="relative px-8 py-4 bg-white text-black text-xs md:text-sm font-bold tracking-widest uppercase rounded-full cursor-pointer z-50 overflow-hidden inline-block"
-                            whileHover={{ scale: 1.05, backgroundColor: "#fbbf24" }} // amber-400
+                            className="relative px-8 py-4 bg-gradient-to-b from-white via-white/90 to-white/60 text-black text-xs md:text-sm font-bold tracking-widest uppercase rounded-full cursor-pointer z-50 overflow-hidden inline-block"
+                            whileHover={{ scale: 1.05, backgroundColor: "#fbbf24" }}
                             whileTap={{ scale: 0.95 }}
                             animate={{
                                 boxShadow: [

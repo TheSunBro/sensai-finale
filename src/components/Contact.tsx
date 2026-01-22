@@ -79,14 +79,17 @@ export default function Contact() {
                     <div className="flex justify-center pt-4">
                         <motion.button
                             type="submit"
-                            className="relative px-10 py-5 bg-white text-black text-sm font-bold tracking-[0.2em] uppercase rounded-full cursor-pointer overflow-hidden group"
-                            whileHover={{ scale: 1.05, backgroundColor: "#fbbf24" }}
-                            whileTap={{ scale: 0.95 }}
+                            className="relative px-12 py-5 bg-gradient-to-r from-[#eacda3] to-[#d6ae7b] text-black text-xs font-semibold tracking-[0.3em] uppercase rounded-full cursor-pointer overflow-hidden group shadow-[0_0_15px_rgba(214,174,123,0.3)] hover:shadow-[0_0_30px_rgba(214,174,123,0.6)] transition-shadow duration-500"
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
                         >
-                            <span className="relative z-10 transition-colors duration-300">Transmit Data</span>
+                            <span className="relative z-10 transition-colors duration-300 drop-shadow-sm">Transmit Signal</span>
 
-                            {/* Inner Shimmer */}
-                            <div className="absolute inset-0 rounded-full border border-amber-500/50 opacity-50 group-hover:opacity-100 transition-opacity" />
+                            {/* Shine Effect */}
+                            <div className="absolute inset-0 z-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out skew-x-12" />
+
+                            {/* Inner Border/Glow */}
+                            <div className="absolute inset-0 rounded-full border border-white/40 opacity-50 group-hover:opacity-100 transition-opacity" />
                         </motion.button>
                     </div>
                 </form>
