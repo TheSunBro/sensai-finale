@@ -286,7 +286,8 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                                 <motion.div
                                     className="absolute -inset-[50%]"
                                     style={{
-                                        background: "conic-gradient(from 0deg, transparent 0deg, rgba(52, 211, 153, 0.5) 45deg, transparent 90deg, transparent 180deg, rgba(52, 211, 153, 0.5) 225deg, transparent 270deg)"
+                                        // Pure White Glint to match "SensAI" text - Liquid Light
+                                        background: "conic-gradient(from 0deg, transparent 0deg, rgba(255, 255, 255, 0.9) 45deg, transparent 90deg, transparent 180deg, rgba(255, 255, 255, 0.9) 225deg, transparent 270deg)"
                                     }}
                                     animate={{ rotate: 360 }}
                                     transition={{ duration: 15, ease: "linear", repeat: Infinity }}
