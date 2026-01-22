@@ -222,19 +222,19 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                             y: useTransform(scrollYProgress, [0.08, 0.1], ["0%", "-200%"]) // Move it way up so it doesn't block clicks
                         }}
                     >
-                        {/* Expensive Green Aurora Waterfall (Premium Wood Aesthetic) */}
+                        {/* Hypnotic Subtle Green Aurora (Hick's Law / Cognitive Trigger) */}
                         <motion.div
                             className="absolute inset-0 z-0 pointer-events-none mix-blend-color-dodge"
                             style={{
-                                // Expensive Green Gradient (Hunter/Forest Green)
-                                background: "linear-gradient(180deg, transparent 0%, rgba(20, 83, 45, 0.15) 40%, rgba(22, 163, 74, 0.1) 60%, transparent 100%)",
+                                // Ultra-subtle "Hint of Green" - Long falloff
+                                background: "linear-gradient(180deg, transparent 0%, rgba(20, 83, 45, 0.05) 30%, rgba(34, 197, 94, 0.08) 50%, rgba(20, 83, 45, 0.05) 70%, transparent 100%)",
                                 backgroundSize: "100% 200%",
                             }}
                             animate={{
                                 backgroundPosition: ["0% -100%", "0% 200%"]
                             }}
                             transition={{
-                                duration: 10,
+                                duration: 20, // Hypnotic slow flow
                                 ease: "linear",
                                 repeat: Infinity
                             }}
