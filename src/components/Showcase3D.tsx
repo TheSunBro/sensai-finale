@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import NextImage from "next/image";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import MatrixText from "@/components/ui/MatrixText";
 
@@ -102,10 +103,12 @@ export default function Showcase3D() {
             {/* Background Image (Mid-Section) - "Hick's Law" Polish */}
             {/* abstracting the background to reduce cognitive load and hide pixelation */}
             <div className="absolute inset-0 z-0 overflow-hidden bg-[#111]">
-                <img
+                <NextImage
                     src="/images/image%20mid1.webp"
-                    alt=""
-                    className="w-full h-full object-cover opacity-50 scale-110 filter blur-sm contrast-125 saturate-50 transition-all duration-1000"
+                    alt="Abstract Background"
+                    fill
+                    className="object-cover opacity-50 scale-110 blur-sm contrast-125 saturate-50 transition-all duration-1000"
+                    priority
                 />
                 {/* Cinematic Vignette: Focuses eye on the center (The TV) */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#000000_90%)]" />

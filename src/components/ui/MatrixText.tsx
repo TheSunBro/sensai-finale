@@ -14,14 +14,13 @@ export default function MatrixText({ text, speed = 50, scrambleDuration = 1000, 
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#@%&*";
 
     useEffect(() => {
-        let interval: NodeJS.Timeout;
         const steps = Math.floor(scrambleDuration / speed);
         let step = 0;
 
         // Start with a scrambled state or just start scrambling
         // For this specific effect, we usually want to scramble *to* the text.
 
-        interval = setInterval(() => {
+        const interval = setInterval(() => {
             if (step >= steps) {
                 setDisplay(text);
                 clearInterval(interval);
