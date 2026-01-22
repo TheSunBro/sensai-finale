@@ -226,8 +226,8 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                         <motion.div
                             className="absolute inset-0 z-0 pointer-events-none mix-blend-color-dodge will-change-opacity"
                             style={{
-                                // Static "Deep Luxury Green" Gradient - Hunter/Moss for Walnut pairing
-                                background: "linear-gradient(180deg, transparent 0%, rgba(26, 71, 42, 0.08) 30%, rgba(47, 79, 79, 0.05) 50%, rgba(26, 71, 42, 0.08) 70%, transparent 100%)",
+                                // Static "Dark Forest" Gradient - User Requested #013220
+                                background: "linear-gradient(180deg, transparent 0%, rgba(1, 50, 32, 0.15) 30%, rgba(1, 40, 30, 0.1) 50%, rgba(1, 50, 32, 0.15) 70%, transparent 100%)",
                             }}
                             animate={{
                                 opacity: [0.3, 0.6, 0.3] // Pure "Breathing" cycle
@@ -242,7 +242,7 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                         {/* Premium Shine Border (Moving Light Spotlight) */}
                         <div className="absolute inset-0 z-10 pointer-events-none rounded-3xl border border-white/10" /> {/* Static Base */}
                         <motion.div
-                            className="absolute inset-0 z-10 pointer-events-none rounded-3xl border border-[#64a064]/30" // Highlight - Sage/Moss Green
+                            className="absolute inset-0 z-10 pointer-events-none rounded-3xl border border-[#013220]/60" // Highlight - Dark Forest Green
                             style={{
                                 maskImage: "linear-gradient(60deg, transparent 20%, black 50%, transparent 80%)",
                                 maskSize: "200% 200%",
