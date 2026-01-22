@@ -216,7 +216,7 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                     {/* HICK'S LAW HERO UI: Glassmorphic Card (Central Focus) */}
                     {/* Physically separates UI from background wood texture */}
                     <motion.div
-                        className="relative p-12 md:p-16 flex flex-col items-center justify-center text-center bg-black/20 backdrop-blur-xl border border-white/10 rounded-3xl shadow-2xl pointer-events-auto"
+                        className="relative p-12 md:p-16 flex flex-col items-center justify-center text-center bg-black/20 backdrop-blur-xl border border-transparent rounded-3xl shadow-2xl pointer-events-auto"
                         style={{
                             opacity: useTransform(scrollYProgress, [0, 0.08], [1, 0]),
                             y: useTransform(scrollYProgress, [0.08, 0.1], ["0%", "-200%"]) // Move it way up so it doesn't block clicks
@@ -239,12 +239,35 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                             }}
                         />
 
+                        {/* Falling Water Effect (Subliminal Liquid Flow - "The Neuro Trigger") */}
+                        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden rounded-3xl" style={{ maskImage: "linear-gradient(to bottom, black 80%, transparent 100%)" }}>
+                            <motion.div
+                                className="absolute inset-x-0 -top-[100%] h-[200%] w-full mix-blend-color-dodge"
+                                style={{
+                                    // Double pattern for seamless infinite loop (0-50, 50-100 match)
+                                    // Opacity effectively reduced by overlay blend and alpha values
+                                    background: "linear-gradient(180deg, transparent 0%, rgba(20, 83, 45, 0.03) 25%, transparent 50%, rgba(20, 83, 45, 0.03) 75%, transparent 100%)",
+                                }}
+                                animate={{
+                                    y: ["0%", "50%"] // Moves exactly one half-height, perfect loop
+                                }}
+                                transition={{
+                                    duration: 40, // Glacial viscosity
+                                    ease: "linear",
+                                    repeat: Infinity
+                                }}
+                            />
+                        </div>
+
                         {/* Open Bottom / Arch Border (Infinite Premium Feel) */}
                         {/* Layer 1: The Structure - Vantablack Green Arch with Bottom Fade */}
                         <div
                             className="absolute inset-0 z-10 pointer-events-none rounded-3xl border-t border-x border-b-0 border-[#011510]/90"
                             style={{ maskImage: "linear-gradient(to bottom, black 80%, transparent 100%)" }}
                         />
+
+                        {/* Layer 1.5: Top Source Glow (Subtle Lip of Light - Tinted Emerald for Purity) */}
+                        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-50/20 to-transparent z-20 shadow-[0_1px_10px_rgba(167,243,208,0.05)]" />
 
                         {/* Layer 2: The Refraction - Top-heavy internal glow */}
                         <div className="absolute inset-0 z-10 pointer-events-none rounded-3xl shadow-[inset_0_10px_20px_rgba(20,83,45,0.2)]" />
