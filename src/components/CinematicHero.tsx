@@ -222,12 +222,12 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                             y: useTransform(scrollYProgress, [0.08, 0.1], ["0%", "-200%"]) // Move it way up so it doesn't block clicks
                         }}
                     >
-                        {/* Purple Aurora Waterfall (Cognitive Luxury) */}
+                        {/* Amber/Gold Aurora Waterfall (Matches Button Glow) */}
                         <motion.div
                             className="absolute inset-0 z-0 pointer-events-none mix-blend-color-dodge"
                             style={{
-                                // Purple/Fuchsia Gradient (Cognitive Luxury)
-                                background: "linear-gradient(180deg, transparent 0%, rgba(147, 51, 234, 0.1) 40%, rgba(168, 85, 247, 0.15) 60%, transparent 100%)",
+                                // Amber/Gold Gradient (Matches Element Glow)
+                                background: "linear-gradient(180deg, transparent 0%, rgba(245, 158, 11, 0.1) 40%, rgba(251, 191, 36, 0.15) 60%, transparent 100%)",
                                 backgroundSize: "100% 200%",
                             }}
                             animate={{
