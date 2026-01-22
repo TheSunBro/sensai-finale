@@ -245,8 +245,8 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                                 className="absolute inset-x-0 -top-[100%] h-[200%] w-full mix-blend-color-dodge"
                                 style={{
                                     // Double pattern for seamless infinite loop (0-50, 50-100 match)
-                                    // Opacity effectively reduced by overlay blend and alpha values
-                                    background: "linear-gradient(180deg, transparent 0%, rgba(2, 44, 34, 0.03) 25%, transparent 50%, rgba(2, 44, 34, 0.03) 75%, transparent 100%)",
+                                    // Opacity increased slightly for visibility while keeping sublimation
+                                    background: "linear-gradient(180deg, transparent 0%, rgba(5, 150, 105, 0.12) 25%, transparent 50%, rgba(5, 150, 105, 0.12) 75%, transparent 100%)",
                                 }}
                                 animate={{
                                     y: ["0%", "50%"] // Moves exactly one half-height, perfect loop
@@ -260,9 +260,9 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                         </div>
 
                         {/* Open Bottom / Arch Border (Infinite Premium Feel) */}
-                        {/* Layer 1: The Structure - Vantablack Green Arch with Bottom Fade */}
+                        {/* Layer 1: The Structure - Deep Forest Green Arch (Plant Stem) */}
                         <div
-                            className="absolute inset-0 z-10 pointer-events-none rounded-3xl border-t border-x border-b-0 border-[#011510]/90"
+                            className="absolute inset-0 z-10 pointer-events-none rounded-3xl border-t border-x border-b-0 border-[#064e3b]/90"
                             style={{ maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)" }}
                         />
 
@@ -286,7 +286,7 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                                 <motion.div
                                     className="absolute -inset-[50%]"
                                     style={{
-                                        background: "conic-gradient(from 0deg, transparent 0deg, rgba(6, 95, 70, 0.5) 45deg, transparent 90deg, transparent 180deg, rgba(6, 95, 70, 0.5) 225deg, transparent 270deg)"
+                                        background: "conic-gradient(from 0deg, transparent 0deg, rgba(52, 211, 153, 0.5) 45deg, transparent 90deg, transparent 180deg, rgba(52, 211, 153, 0.5) 225deg, transparent 270deg)"
                                     }}
                                     animate={{ rotate: 360 }}
                                     transition={{ duration: 15, ease: "linear", repeat: Infinity }}
@@ -294,8 +294,8 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                             </div>
                         </div>
 
-                        {/* Layer 1.5: Top Source Glow (Subtle Lip of Light - Deepest Obsidian Green) */}
-                        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-950/20 to-transparent z-20 shadow-[0_1px_10px_rgba(2,44,34,0.1)]" />
+                        {/* Layer 1.5: Top Source Glow (Sunlight Source - Vibrant Green) */}
+                        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent z-20 shadow-[0_1px_15px_rgba(16,185,129,0.1)]" />
 
                         {/* Layer 2: The Refraction - Top-heavy internal glow (Masked to fade) */}
                         <div
