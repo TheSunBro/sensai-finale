@@ -227,7 +227,7 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                             className="absolute inset-0 z-0 pointer-events-none mix-blend-color-dodge will-change-opacity"
                             style={{
                                 // Static "Deep Luxury Green" Gradient - Hunter/Moss for Walnut pairing
-                                background: "linear-gradient(180deg, transparent 0%, rgba(26, 71, 42, 0.08) 30%, rgba(47, 79, 79, 0.05) 50%, rgba(26, 71, 42, 0.08) 70%, transparent 100%)",
+                                background: "linear-gradient(180deg, transparent 0%, rgba(2, 44, 34, 0.08) 30%, rgba(2, 44, 34, 0.05) 50%, rgba(2, 44, 34, 0.08) 70%, transparent 100%)",
                             }}
                             animate={{
                                 opacity: [0.3, 0.6, 0.3] // Pure "Breathing" cycle
@@ -246,7 +246,7 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                                 style={{
                                     // Double pattern for seamless infinite loop (0-50, 50-100 match)
                                     // Opacity effectively reduced by overlay blend and alpha values
-                                    background: "linear-gradient(180deg, transparent 0%, rgba(20, 83, 45, 0.03) 25%, transparent 50%, rgba(20, 83, 45, 0.03) 75%, transparent 100%)",
+                                    background: "linear-gradient(180deg, transparent 0%, rgba(2, 44, 34, 0.03) 25%, transparent 50%, rgba(2, 44, 34, 0.03) 75%, transparent 100%)",
                                 }}
                                 animate={{
                                     y: ["0%", "50%"] // Moves exactly one half-height, perfect loop
@@ -266,16 +266,16 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                             style={{ maskImage: "linear-gradient(to bottom, black 80%, transparent 100%)" }}
                         />
 
-                        {/* Layer 1.5: Top Source Glow (Subtle Lip of Light - Deepest Darkest Green) */}
-                        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-900/20 to-transparent z-20 shadow-[0_1px_10px_rgba(6,78,59,0.05)]" />
+                        {/* Layer 1.5: Top Source Glow (Subtle Lip of Light - Deepest Obsidian Green) */}
+                        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-950/20 to-transparent z-20 shadow-[0_1px_10px_rgba(2,44,34,0.1)]" />
 
                         {/* Layer 2: The Refraction - Top-heavy internal glow */}
-                        <div className="absolute inset-0 z-10 pointer-events-none rounded-3xl shadow-[inset_0_10px_20px_rgba(20,83,45,0.2)]" />
+                        <div className="absolute inset-0 z-10 pointer-events-none rounded-3xl shadow-[inset_0_10px_20px_rgba(2,44,34,0.3)]" />
 
                         {/* Layer 3: The Reflection - Rising Light (Wrapped in Fade Mask) */}
                         <div className="absolute inset-0 z-10 pointer-events-none" style={{ maskImage: "linear-gradient(to bottom, black 80%, transparent 100%)" }}>
                             <motion.div
-                                className="absolute inset-0 rounded-3xl border-t border-x border-b-0 border-emerald-900/30"
+                                className="absolute inset-0 rounded-3xl border-t border-x border-b-0 border-emerald-950/40"
                                 style={{
                                     maskImage: "linear-gradient(110deg, transparent 30%, black 50%, transparent 70%)",
                                     maskSize: "200% 200%",
