@@ -219,7 +219,8 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                         className="relative p-12 md:p-16 flex flex-col items-center justify-center text-center bg-black/20 backdrop-blur-xl border border-transparent rounded-3xl shadow-2xl pointer-events-auto"
                         style={{
                             opacity: useTransform(scrollYProgress, [0, 0.08], [1, 0]),
-                            y: useTransform(scrollYProgress, [0.08, 0.1], ["0%", "-200%"]) // Move it way up so it doesn't block clicks
+                            y: useTransform(scrollYProgress, [0.08, 0.1], ["0%", "-200%"]), // Move it way up so it doesn't block clicks
+                            transform: "perspective(1000px) rotateX(2deg) scale(0.98)", // Static "Physical Monolith" Tilt
                         }}
                     >
                         {/* Zen Green Breath (Max Performance / Subconscious Luxury) */}
