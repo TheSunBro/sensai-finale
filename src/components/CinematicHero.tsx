@@ -226,8 +226,8 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                         <motion.div
                             className="absolute inset-0 z-0 pointer-events-none mix-blend-color-dodge will-change-opacity"
                             style={{
-                                // Static "Expensive Green" Gradient - No movement, just presence
-                                background: "linear-gradient(180deg, transparent 0%, rgba(20, 83, 45, 0.08) 30%, rgba(34, 197, 94, 0.05) 50%, rgba(20, 83, 45, 0.08) 70%, transparent 100%)",
+                                // Static "Deep Luxury Green" Gradient - Hunter/Moss for Walnut pairing
+                                background: "linear-gradient(180deg, transparent 0%, rgba(26, 71, 42, 0.08) 30%, rgba(47, 79, 79, 0.05) 50%, rgba(26, 71, 42, 0.08) 70%, transparent 100%)",
                             }}
                             animate={{
                                 opacity: [0.3, 0.6, 0.3] // Pure "Breathing" cycle
@@ -235,6 +235,24 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                             transition={{
                                 duration: 8, // Relaxed human breath rhythm
                                 ease: "easeInOut",
+                                repeat: Infinity
+                            }}
+                        />
+
+                        {/* Premium Shine Border (Moving Light Spotlight) */}
+                        <div className="absolute inset-0 z-10 pointer-events-none rounded-3xl border border-white/10" /> {/* Static Base */}
+                        <motion.div
+                            className="absolute inset-0 z-10 pointer-events-none rounded-3xl border border-[#64a064]/30" // Highlight - Sage/Moss Green
+                            style={{
+                                maskImage: "linear-gradient(60deg, transparent 20%, black 50%, transparent 80%)",
+                                maskSize: "200% 200%",
+                            }}
+                            animate={{
+                                maskPosition: ["0% 0%", "100% 0%", "0% 0%"] // Sweeping light
+                            }}
+                            transition={{
+                                duration: 10,
+                                ease: "linear",
                                 repeat: Infinity
                             }}
                         />
