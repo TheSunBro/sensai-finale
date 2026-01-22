@@ -266,8 +266,8 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                             style={{ maskImage: "linear-gradient(to bottom, black 80%, transparent 100%)" }}
                         />
 
-                        {/* Layer 1.5: Top Source Glow (Subtle Lip of Light - Darker Finessed Green) */}
-                        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-500/10 to-transparent z-20 shadow-[0_1px_10px_rgba(16,185,129,0.05)]" />
+                        {/* Layer 1.5: Top Source Glow (Subtle Lip of Light - Deepest Darkest Green) */}
+                        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-900/20 to-transparent z-20 shadow-[0_1px_10px_rgba(6,78,59,0.05)]" />
 
                         {/* Layer 2: The Refraction - Top-heavy internal glow */}
                         <div className="absolute inset-0 z-10 pointer-events-none rounded-3xl shadow-[inset_0_10px_20px_rgba(20,83,45,0.2)]" />
@@ -275,7 +275,7 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                         {/* Layer 3: The Reflection - Rising Light (Wrapped in Fade Mask) */}
                         <div className="absolute inset-0 z-10 pointer-events-none" style={{ maskImage: "linear-gradient(to bottom, black 80%, transparent 100%)" }}>
                             <motion.div
-                                className="absolute inset-0 rounded-3xl border-t border-x border-b-0 border-[#166534]/30"
+                                className="absolute inset-0 rounded-3xl border-t border-x border-b-0 border-emerald-900/30"
                                 style={{
                                     maskImage: "linear-gradient(110deg, transparent 30%, black 50%, transparent 70%)",
                                     maskSize: "200% 200%",
