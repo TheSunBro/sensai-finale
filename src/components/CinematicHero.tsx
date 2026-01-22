@@ -240,7 +240,7 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                         />
 
                         {/* Falling Water Effect (Subliminal Liquid Flow - "The Neuro Trigger") */}
-                        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden rounded-3xl" style={{ maskImage: "linear-gradient(to bottom, black 80%, transparent 100%)" }}>
+                        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden rounded-3xl" style={{ maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)" }}>
                             <motion.div
                                 className="absolute inset-x-0 -top-[100%] h-[200%] w-full mix-blend-color-dodge"
                                 style={{
@@ -263,17 +263,20 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                         {/* Layer 1: The Structure - Vantablack Green Arch with Bottom Fade */}
                         <div
                             className="absolute inset-0 z-10 pointer-events-none rounded-3xl border-t border-x border-b-0 border-[#011510]/90"
-                            style={{ maskImage: "linear-gradient(to bottom, black 80%, transparent 100%)" }}
+                            style={{ maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)" }}
                         />
 
                         {/* Layer 1.5: Top Source Glow (Subtle Lip of Light - Deepest Obsidian Green) */}
                         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-950/20 to-transparent z-20 shadow-[0_1px_10px_rgba(2,44,34,0.1)]" />
 
-                        {/* Layer 2: The Refraction - Top-heavy internal glow */}
-                        <div className="absolute inset-0 z-10 pointer-events-none rounded-3xl shadow-[inset_0_10px_20px_rgba(2,44,34,0.3)]" />
+                        {/* Layer 2: The Refraction - Top-heavy internal glow (Masked to fade) */}
+                        <div
+                            className="absolute inset-0 z-10 pointer-events-none rounded-3xl shadow-[inset_0_10px_20px_rgba(2,44,34,0.3)]"
+                            style={{ maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)" }}
+                        />
 
                         {/* Layer 3: The Reflection - Rising Light (Wrapped in Fade Mask) */}
-                        <div className="absolute inset-0 z-10 pointer-events-none" style={{ maskImage: "linear-gradient(to bottom, black 80%, transparent 100%)" }}>
+                        <div className="absolute inset-0 z-10 pointer-events-none" style={{ maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)" }}>
                             <motion.div
                                 className="absolute inset-0 rounded-3xl border-t border-x border-b-0 border-emerald-950/40"
                                 style={{
