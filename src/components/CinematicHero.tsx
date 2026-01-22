@@ -260,9 +260,9 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                         </div>
 
                         {/* Open Bottom / Arch Border (Infinite Premium Feel) */}
-                        {/* Layer 1: The Structure - Deep Forest Green Arch (Plant Stem) */}
+                        {/* Layer 1: The Structure - Vantablack Green Arch (Obsidian Base) */}
                         <div
-                            className="absolute inset-0 z-10 pointer-events-none rounded-3xl border-t border-x border-b-0 border-[#064e3b]/90"
+                            className="absolute inset-0 z-10 pointer-events-none rounded-3xl border-t border-x border-b-0 border-[#011510]/90"
                             style={{ maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)" }}
                         />
 
@@ -295,8 +295,8 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                             </div>
                         </div>
 
-                        {/* Layer 1.5: Top Source Glow (Sunlight Source - Vibrant Green) */}
-                        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent z-20 shadow-[0_1px_15px_rgba(16,185,129,0.1)]" />
+                        {/* Layer 1.5: Top Source Glow (Subtle Lip of Light - Deepest Obsidian Green) */}
+                        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-950/20 to-transparent z-20 shadow-[0_1px_10px_rgba(2,44,34,0.1)]" />
 
                         {/* Layer 2: The Refraction - Top-heavy internal glow (Masked to fade) */}
                         <div
