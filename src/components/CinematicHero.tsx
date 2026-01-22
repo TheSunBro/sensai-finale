@@ -222,23 +222,60 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                             y: useTransform(scrollYProgress, [0.08, 0.1], ["0%", "-200%"]) // Move it way up so it doesn't block clicks
                         }}
                     >
-                        {/* Hypnotic Subtle Green Aurora (Hick's Law / Cognitive Trigger) */}
-                        <motion.div
-                            className="absolute inset-0 z-0 pointer-events-none mix-blend-color-dodge"
-                            style={{
-                                // Ultra-subtle "Hint of Green" - Long falloff
-                                background: "linear-gradient(180deg, transparent 0%, rgba(20, 83, 45, 0.05) 30%, rgba(34, 197, 94, 0.08) 50%, rgba(20, 83, 45, 0.05) 70%, transparent 100%)",
-                                backgroundSize: "100% 200%",
-                            }}
-                            animate={{
-                                backgroundPosition: ["0% -100%", "0% 200%"]
-                            }}
-                            transition={{
-                                duration: 20, // Hypnotic slow flow
-                                ease: "linear",
-                                repeat: Infinity
-                            }}
-                        />
+                        {/* Gooey Lava Lamp Effect (Unpredictable Green) */}
+                        <div className="absolute inset-0 z-0 pointer-events-none mix-blend-color-dodge overflow-hidden rounded-3xl">
+                            {/* Blob 1: Large slow mover */}
+                            <motion.div
+                                className="absolute w-[150%] h-[150%] -top-[25%] -left-[25%]"
+                                style={{
+                                    background: "radial-gradient(circle at center, rgba(34, 197, 94, 0.15) 0%, transparent 60%)",
+                                }}
+                                animate={{
+                                    x: ["-10%", "10%", "-5%", "-10%"],
+                                    y: ["-10%", "5%", "10%", "-10%"],
+                                    scale: [1, 1.1, 0.9, 1]
+                                }}
+                                transition={{
+                                    duration: 25,
+                                    ease: "easeInOut",
+                                    repeat: Infinity,
+                                    times: [0, 0.3, 0.6, 1]
+                                }}
+                            />
+                            {/* Blob 2: The vertical flow */}
+                            <motion.div
+                                className="absolute w-[100%] h-[100%] top-0 left-0"
+                                style={{
+                                    background: "radial-gradient(circle at center, rgba(20, 83, 45, 0.2) 0%, transparent 50%)",
+                                }}
+                                animate={{
+                                    y: ["100%", "-100%"],
+                                    x: ["0%", "20%", "-20%", "0%"],
+                                    scale: [0.8, 1.2, 0.8]
+                                }}
+                                transition={{
+                                    duration: 18,
+                                    ease: "linear",
+                                    repeat: Infinity
+                                }}
+                            />
+                            {/* Blob 3: The wandering interference */}
+                            <motion.div
+                                className="absolute w-[80%] h-[80%]"
+                                style={{
+                                    background: "radial-gradient(ellipse at center, rgba(22, 163, 74, 0.1) 0%, transparent 70%)",
+                                }}
+                                animate={{
+                                    x: ["0%", "100%", "50%", "0%"],
+                                    y: ["0%", "50%", "100%", "0%"],
+                                }}
+                                transition={{
+                                    duration: 30,
+                                    ease: "easeInOut",
+                                    repeat: Infinity
+                                }}
+                            />
+                        </div>
 
                         {/* Brand Title */}
                         {/* Brand Title - Glass Text Aesthetic */}
