@@ -239,18 +239,17 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                             }}
                         />
 
-                        {/* Deepest Luxury Edge (The "Obsidian Emerald" Look) */}
-                        {/* Layer 1: The Stone Base - Ultra-Dark Obsidian Green */}
-                        <div className="absolute inset-0 z-10 pointer-events-none rounded-3xl border border-[#022c22]/80" />
+                        {/* Open Bottom / Arch Border (Infinite Premium Feel) */}
+                        {/* Layer 1: The Structure - Vantablack Green Arch */}
+                        <div className="absolute inset-0 z-10 pointer-events-none rounded-3xl border-t border-x border-b-0 border-[#011510]/90" />
 
-                        {/* Layer 2: The Refraction - Soft, deep internal crystal glow */}
-                        <div className="absolute inset-0 z-10 pointer-events-none rounded-3xl shadow-[inset_0_0_20px_rgba(20,83,45,0.3)]" />
+                        {/* Layer 2: The Refraction - Top-heavy internal glow */}
+                        <div className="absolute inset-0 z-10 pointer-events-none rounded-3xl shadow-[inset_0_10px_20px_rgba(20,83,45,0.2)]" />
 
-                        {/* Layer 3: The Reflection - Wide, soft, subliminal movement */}
+                        {/* Layer 3: The Reflection - Rising Light (No bottom edge) */}
                         <motion.div
-                            className="absolute inset-0 z-10 pointer-events-none rounded-3xl border border-[#15803d]/30" // Green 700 Highlight
+                            className="absolute inset-0 z-10 pointer-events-none rounded-3xl border-t border-x border-b-0 border-[#15803d]/30"
                             style={{
-                                // Wider, softer gradient for a "polished surface" look
                                 maskImage: "linear-gradient(110deg, transparent 30%, black 50%, transparent 70%)",
                                 maskSize: "200% 200%",
                             }}
@@ -258,7 +257,7 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                                 maskPosition: ["0% 0%", "100% 0%", "0% 0%"]
                             }}
                             transition={{
-                                duration: 20, // Very slow, subliminal
+                                duration: 20,
                                 ease: "easeInOut",
                                 repeat: Infinity
                             }}
