@@ -239,26 +239,26 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                             }}
                         />
 
-                        {/* Perfect Emerald Edge (Hick's Law: "Presence without Noise") */}
-                        {/* Layer 1: The Stone Base - Dark Hunter Green for definition */}
-                        <div className="absolute inset-0 z-10 pointer-events-none rounded-3xl border border-[#0F3923]/60" />
+                        {/* Deepest Luxury Edge (The "Obsidian Emerald" Look) */}
+                        {/* Layer 1: The Stone Base - Ultra-Dark Obsidian Green */}
+                        <div className="absolute inset-0 z-10 pointer-events-none rounded-3xl border border-[#022c22]/80" />
 
-                        {/* Layer 2: The Refraction - Inner faint emerald glow for depth */}
-                        <div className="absolute inset-0 z-10 pointer-events-none rounded-3xl shadow-[inset_0_0_0_1px_rgba(46,139,87,0.2)]" />
+                        {/* Layer 2: The Refraction - Soft, deep internal crystal glow */}
+                        <div className="absolute inset-0 z-10 pointer-events-none rounded-3xl shadow-[inset_0_0_20px_rgba(20,83,45,0.3)]" />
 
-                        {/* Layer 3: The Glint - Razor sharp, slow moving light */}
+                        {/* Layer 3: The Reflection - Wide, soft, subliminal movement */}
                         <motion.div
-                            className="absolute inset-0 z-10 pointer-events-none rounded-3xl border border-[#50C878]/40" // Emerald Green Highlight
+                            className="absolute inset-0 z-10 pointer-events-none rounded-3xl border border-[#15803d]/30" // Green 700 Highlight
                             style={{
-                                // Sharper gradient for "Cut Glass" look
-                                maskImage: "linear-gradient(75deg, transparent 30%, black 50%, transparent 70%)",
+                                // Wider, softer gradient for a "polished surface" look
+                                maskImage: "linear-gradient(110deg, transparent 30%, black 50%, transparent 70%)",
                                 maskSize: "200% 200%",
                             }}
                             animate={{
                                 maskPosition: ["0% 0%", "100% 0%", "0% 0%"]
                             }}
                             transition={{
-                                duration: 12, // Slow, hypnotic glint
+                                duration: 20, // Very slow, subliminal
                                 ease: "easeInOut",
                                 repeat: Infinity
                             }}
