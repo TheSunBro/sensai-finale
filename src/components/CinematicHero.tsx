@@ -266,6 +266,34 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                             style={{ maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)" }}
                         />
 
+                        {/* Dark Border Beams (Rich Traveling Light) */}
+                        <div
+                            className="absolute inset-0 z-10 pointer-events-none rounded-3xl overflow-hidden"
+                            style={{
+                                maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)" // Matches structure fade
+                            }}
+                        >
+                            <div
+                                className="absolute inset-0 rounded-3xl"
+                                style={{
+                                    padding: "1px", // Defines beam width
+                                    mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                                    WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                                    maskComposite: "exclude",
+                                    WebkitMaskComposite: "xor",
+                                }}
+                            >
+                                <motion.div
+                                    className="absolute -inset-[50%]"
+                                    style={{
+                                        background: "conic-gradient(from 0deg, transparent 0deg, rgba(6, 95, 70, 0.5) 45deg, transparent 90deg, transparent 180deg, rgba(6, 95, 70, 0.5) 225deg, transparent 270deg)"
+                                    }}
+                                    animate={{ rotate: 360 }}
+                                    transition={{ duration: 15, ease: "linear", repeat: Infinity }}
+                                />
+                            </div>
+                        </div>
+
                         {/* Layer 1.5: Top Source Glow (Subtle Lip of Light - Deepest Obsidian Green) */}
                         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-950/20 to-transparent z-20 shadow-[0_1px_10px_rgba(2,44,34,0.1)]" />
 
