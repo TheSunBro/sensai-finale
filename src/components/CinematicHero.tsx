@@ -6,6 +6,55 @@ import NextImage from "next/image";
 import Lenis from "lenis";
 import { cn } from "../lib/utils";
 
+// 10x DEV: Centralized Design Theme for Hero Component
+// decoupling logic from aesthetics for easier iteration
+const HERO_THEME = {
+    // The "Vantablack Green" structure - Obsidian Base
+    border: {
+        base: "border-[#011510]/90", // Vantablack Green
+        reflection: "border-emerald-950/40", // Deep Reflection
+        fadeMask: "linear-gradient(to bottom, black 60%, transparent 100%)", // The "Falling" Fade
+    },
+    // The "Plant Life" aesthetics
+    water: {
+        gradient: "linear-gradient(180deg, transparent 0%, rgba(4, 120, 87, 0.09) 25%, transparent 50%, rgba(4, 120, 87, 0.09) 75%, transparent 100%)", // Emerald 700 (Calm Life)
+        mask: "linear-gradient(to bottom, black 60%, transparent 100%)",
+    },
+    // The "Zen Breath" - Subconscious Foundation
+    zenBreath: {
+        gradient: "linear-gradient(180deg, transparent 0%, rgba(2, 44, 34, 0.08) 30%, rgba(2, 44, 34, 0.05) 50%, rgba(2, 44, 34, 0.08) 70%, transparent 100%)",
+        animation: { opacity: [0.3, 0.6, 0.3] },
+        transition: { duration: 8, ease: "easeInOut" as const, repeat: Infinity },
+    },
+    // The "SensAI Text Sync" - Pure White Light
+    beams: {
+        gradient: "conic-gradient(from 0deg, transparent 0deg, rgba(255, 255, 255, 0.9) 45deg, transparent 90deg, transparent 180deg, rgba(255, 255, 255, 0.9) 225deg, transparent 270deg)",
+        mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+        composite: "exclude",
+    },
+    // Lighting Details
+    glow: {
+        topSource: "via-emerald-950/20", // Obsidian Source
+        shadow: "rgba(2,44,34,0.1)", // Subtle deep shadow
+    }
+};
+
+// ... component starts ...
+
+// Inside render:
+// Replace inline styles with HERO_THEME values
+
+// Example replacement for Zen Breath:
+/* Zen Green Breath (Subconscious Foundation) */
+<motion.div
+    className="absolute inset-0 z-0 pointer-events-none mix-blend-color-dodge will-change-opacity"
+    style={{ background: HERO_THEME.zenBreath.gradient }}
+    animate={HERO_THEME.zenBreath.animation}
+    transition={HERO_THEME.zenBreath.transition}
+/>
+
+// ... and so on for other layers.
+
 // ... [existing imports]
 
 // ... [inside component]
@@ -170,7 +219,7 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
         >
             <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
 
-                {/* Layer 1: The Content (TV) - Behind the curtain */}
+                {/* Content Container (TV) - Behind the curtain */}
                 <motion.div
                     style={{ scale: childScale, opacity: childOpacity, y: childY }}
                     className="absolute inset-0 z-0 flex items-center justify-center"
@@ -178,7 +227,7 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                     {children}
                 </motion.div>
 
-                {/* Layer 2: The Curtain (Canvas) - Scale/Fade wrapper */}
+                {/* Curtain Animation (Canvas) - Scale/Fade wrapper */}
                 <motion.div
                     style={{
                         scale: curtainScale,
@@ -193,7 +242,7 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                     />
                 </motion.div>
 
-                {/* Layer 2.5: High-Res Static Hero Overlay (Fixes initial blur) */}
+                {/* High-Res Static Hero Overlay (Fixes initial blur) */}
                 {/* Visual Trick: Shows the sharp 4K image at start, fades to movie sequence on scroll */}
                 <motion.div
                     className="absolute inset-0 z-20 pointer-events-none"
@@ -210,7 +259,7 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                     />
                 </motion.div>
 
-                {/* Layer 3: Text Sequence & Interface */}
+                {/* Text Sequence & Interface */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-30 pb-0">
 
                     {/* HICK'S LAW HERO UI: Glassmorphic Card (Central Focus) */}
@@ -222,89 +271,65 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                             y: useTransform(scrollYProgress, [0.08, 0.1], ["0%", "-200%"]) // Move it way up so it doesn't block clicks
                         }}
                     >
-                        {/* Zen Green Breath (Max Performance / Subconscious Luxury) */}
+                        {/* Zen Green Breath (Subconscious Foundation) */}
                         <motion.div
                             className="absolute inset-0 z-0 pointer-events-none mix-blend-color-dodge will-change-opacity"
-                            style={{
-                                // Static "Deep Luxury Green" Gradient - Hunter/Moss for Walnut pairing
-                                background: "linear-gradient(180deg, transparent 0%, rgba(2, 44, 34, 0.08) 30%, rgba(2, 44, 34, 0.05) 50%, rgba(2, 44, 34, 0.08) 70%, transparent 100%)",
-                            }}
-                            animate={{
-                                opacity: [0.3, 0.6, 0.3] // Pure "Breathing" cycle
-                            }}
-                            transition={{
-                                duration: 8, // Relaxed human breath rhythm
-                                ease: "easeInOut",
-                                repeat: Infinity
-                            }}
+                            style={{ background: HERO_THEME.zenBreath.gradient }}
+                            animate={HERO_THEME.zenBreath.animation}
+                            transition={HERO_THEME.zenBreath.transition}
                         />
 
                         {/* Falling Water Effect (Subliminal Liquid Flow - "The Neuro Trigger") */}
-                        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden rounded-3xl" style={{ maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)" }}>
+                        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden rounded-3xl" style={{ maskImage: HERO_THEME.water.mask }}>
                             <motion.div
-                                className="absolute inset-x-0 -top-[100%] h-[200%] w-full mix-blend-color-dodge"
-                                style={{
-                                    // Double pattern for seamless infinite loop (0-50, 50-100 match)
-                                    // Opacity increased slightly for visibility while keeping sublimation
-                                    background: "linear-gradient(180deg, transparent 0%, rgba(4, 120, 87, 0.09) 25%, transparent 50%, rgba(4, 120, 87, 0.09) 75%, transparent 100%)",
-                                }}
-                                animate={{
-                                    y: ["0%", "50%"] // Moves exactly one half-height, perfect loop
-                                }}
-                                transition={{
-                                    duration: 40, // Glacial viscosity
-                                    ease: "linear",
-                                    repeat: Infinity
-                                }}
+                                className="absolute inset-x-0 -top-[100%] h-[200%] w-full mix-blend-color-dodge will-change-transform"
+                                style={{ background: HERO_THEME.water.gradient }}
+                                animate={{ y: ["0%", "50%"] }}
+                                transition={{ duration: 40, ease: "linear", repeat: Infinity }}
                             />
                         </div>
 
                         {/* Open Bottom / Arch Border (Infinite Premium Feel) */}
                         {/* Layer 1: The Structure - Vantablack Green Arch (Obsidian Base) */}
                         <div
-                            className="absolute inset-0 z-10 pointer-events-none rounded-3xl border-t border-x border-b-0 border-[#011510]/90"
-                            style={{ maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)" }}
+                            className={cn("absolute inset-0 z-10 pointer-events-none rounded-3xl border-t border-x border-b-0", HERO_THEME.border.base)}
+                            style={{ maskImage: HERO_THEME.border.fadeMask }}
                         />
 
                         {/* Dark Border Beams (Rich Traveling Light) */}
                         <div
                             className="absolute inset-0 z-10 pointer-events-none rounded-3xl overflow-hidden"
-                            style={{
-                                maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)" // Matches structure fade
-                            }}
+                            style={{ maskImage: HERO_THEME.border.fadeMask }}
                         >
                             <div
                                 className="absolute inset-0 rounded-3xl"
                                 style={{
                                     padding: "1px", // Defines beam width
-                                    mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                                    WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                                    maskComposite: "exclude",
+                                    mask: HERO_THEME.beams.mask,
+                                    WebkitMask: HERO_THEME.beams.mask,
+                                    maskComposite: HERO_THEME.beams.composite,
                                     WebkitMaskComposite: "xor",
                                 }}
                             >
                                 <motion.div
-                                    className="absolute -inset-[50%]"
-                                    style={{
-                                        // Pure White Glint to match "SensAI" text - Liquid Light
-                                        background: "conic-gradient(from 0deg, transparent 0deg, rgba(255, 255, 255, 0.9) 45deg, transparent 90deg, transparent 180deg, rgba(255, 255, 255, 0.9) 225deg, transparent 270deg)"
-                                    }}
+                                    className="absolute -inset-[50%] will-change-transform"
+                                    style={{ background: HERO_THEME.beams.gradient }}
                                     animate={{ rotate: 360 }}
                                     transition={{ duration: 15, ease: "linear", repeat: Infinity }}
                                 />
                             </div>
                         </div>
 
-                        {/* Layer 1.5: Top Source Glow (Subtle Lip of Light - Deepest Obsidian Green) */}
-                        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-950/20 to-transparent z-20 shadow-[0_1px_10px_rgba(2,44,34,0.1)]" />
+                        {/* Top Source Glow (Subtle Lip of Light - Deepest Obsidian Green) */}
+                        <div className={cn("absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent to-transparent z-20", HERO_THEME.glow.topSource)} style={{ boxShadow: `0 1px 10px ${HERO_THEME.glow.shadow}` }} />
 
-                        {/* Layer 2: The Refraction - Top-heavy internal glow (Masked to fade) */}
+                        {/* Refraction Caustics - Top-heavy internal glow (Masked to fade) */}
                         <div
                             className="absolute inset-0 z-10 pointer-events-none rounded-3xl shadow-[inset_0_10px_20px_rgba(2,44,34,0.3)]"
                             style={{ maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)" }}
                         />
 
-                        {/* Layer 3: The Reflection - Rising Light (Wrapped in Fade Mask) */}
+                        {/* Surface Reflection - Rising Light (Wrapped in Fade Mask) */}
                         <div className="absolute inset-0 z-10 pointer-events-none" style={{ maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)" }}>
                             <motion.div
                                 className="absolute inset-0 rounded-3xl border-t border-x border-b-0 border-emerald-950/40"
