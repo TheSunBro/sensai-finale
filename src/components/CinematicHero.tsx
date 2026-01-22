@@ -204,7 +204,7 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                         alt="Hero Background"
                         fill
                         priority
-                        quality={90}
+                        quality={75}
                         sizes="100vw"
                         className="object-cover"
                     />

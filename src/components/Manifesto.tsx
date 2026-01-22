@@ -16,7 +16,7 @@ export default function Manifesto() {
                     alt="Background Wall"
                     fill
                     priority
-                    quality={90}
+                    quality={75}
                     sizes="100vw"
                     className="object-cover opacity-100" // Always visible
                 />
