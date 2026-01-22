@@ -222,21 +222,18 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                             y: useTransform(scrollYProgress, [0.08, 0.1], ["0%", "-200%"]) // Move it way up so it doesn't block clicks
                         }}
                     >
-                        {/* Optimized Emerald Gradient (High Performance Breathing) */}
+                        {/* Zen Green Breath (Max Performance / Subconscious Luxury) */}
                         <motion.div
-                            className="absolute inset-0 z-0 pointer-events-none mix-blend-color-dodge"
+                            className="absolute inset-0 z-0 pointer-events-none mix-blend-color-dodge will-change-opacity"
                             style={{
-                                // Complex diagonal sheen that feels like light hitting emerald
-                                background: "linear-gradient(135deg, transparent 0%, rgba(20, 83, 45, 0.1) 25%, rgba(34, 197, 94, 0.05) 50%, rgba(20, 83, 45, 0.1) 75%, transparent 100%)",
-                                backgroundSize: "200% 200%",
+                                // Static "Expensive Green" Gradient - No movement, just presence
+                                background: "linear-gradient(180deg, transparent 0%, rgba(20, 83, 45, 0.08) 30%, rgba(34, 197, 94, 0.05) 50%, rgba(20, 83, 45, 0.08) 70%, transparent 100%)",
                             }}
                             animate={{
-                                backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
-                                scale: [1, 1.1, 1],
-                                opacity: [0.8, 1, 0.8]
+                                opacity: [0.3, 0.6, 0.3] // Pure "Breathing" cycle
                             }}
                             transition={{
-                                duration: 15,
+                                duration: 8, // Relaxed human breath rhythm
                                 ease: "easeInOut",
                                 repeat: Infinity
                             }}
