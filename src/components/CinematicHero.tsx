@@ -240,28 +240,33 @@ export default function CinematicHero({ children, className, lenis }: CinematicH
                         />
 
                         {/* Open Bottom / Arch Border (Infinite Premium Feel) */}
-                        {/* Layer 1: The Structure - Vantablack Green Arch */}
-                        <div className="absolute inset-0 z-10 pointer-events-none rounded-3xl border-t border-x border-b-0 border-[#011510]/90" />
+                        {/* Layer 1: The Structure - Vantablack Green Arch with Bottom Fade */}
+                        <div
+                            className="absolute inset-0 z-10 pointer-events-none rounded-3xl border-t border-x border-b-0 border-[#011510]/90"
+                            style={{ maskImage: "linear-gradient(to bottom, black 80%, transparent 100%)" }}
+                        />
 
                         {/* Layer 2: The Refraction - Top-heavy internal glow */}
                         <div className="absolute inset-0 z-10 pointer-events-none rounded-3xl shadow-[inset_0_10px_20px_rgba(20,83,45,0.2)]" />
 
-                        {/* Layer 3: The Reflection - Rising Light (No bottom edge) */}
-                        <motion.div
-                            className="absolute inset-0 z-10 pointer-events-none rounded-3xl border-t border-x border-b-0 border-[#15803d]/30"
-                            style={{
-                                maskImage: "linear-gradient(110deg, transparent 30%, black 50%, transparent 70%)",
-                                maskSize: "200% 200%",
-                            }}
-                            animate={{
-                                maskPosition: ["0% 0%", "100% 0%", "0% 0%"]
-                            }}
-                            transition={{
-                                duration: 20,
-                                ease: "easeInOut",
-                                repeat: Infinity
-                            }}
-                        />
+                        {/* Layer 3: The Reflection - Rising Light (Wrapped in Fade Mask) */}
+                        <div className="absolute inset-0 z-10 pointer-events-none" style={{ maskImage: "linear-gradient(to bottom, black 80%, transparent 100%)" }}>
+                            <motion.div
+                                className="absolute inset-0 rounded-3xl border-t border-x border-b-0 border-[#15803d]/30"
+                                style={{
+                                    maskImage: "linear-gradient(110deg, transparent 30%, black 50%, transparent 70%)",
+                                    maskSize: "200% 200%",
+                                }}
+                                animate={{
+                                    maskPosition: ["0% 0%", "100% 0%", "0% 0%"]
+                                }}
+                                transition={{
+                                    duration: 20,
+                                    ease: "easeInOut",
+                                    repeat: Infinity
+                                }}
+                            />
+                        </div>
 
                         {/* Brand Title */}
                         {/* Brand Title - Glass Text Aesthetic */}
